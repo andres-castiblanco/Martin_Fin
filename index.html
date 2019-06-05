@@ -1,0 +1,3434 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Elecciones 2018</title>
+        <SCRIPT language="JavaScript">
+                <!-- hide
+                var pass;
+                var pass1 = ".";
+                password=prompt('Por favor introducir la *CLAVE*, para ver el contenido de la pagina!',' ');
+                if (password==pass1);
+
+                else
+                   {
+                  alert('Clave Incorrecta! Vuelva a intentar!')
+                    window.location="https://www.google.com";
+                   }
+                -->
+        </SCRIPT>
+        <link rel="icon" type="image/png" href="favicon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-search.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="js/leaflet-search.js"></script>
+        <script src="data/FERNANDOROJAS_4.js"></script>
+        <script src="data/JUANCARLOSFLOREZ_5.js"></script>
+        <script src="data/GERMANRICAURTE_6.js"></script>
+        <script src="data/RODRIGOLOZANO_7.js"></script>
+        <script src="data/JOSEDAVIDCASTELLANOS_8.js"></script>
+        <script src="data/MARIAFROJAS_9.js"></script>
+        <script src="data/LUCIABASTIDAS_10.js"></script>
+        <script src="data/DIEGOCANCINO_11.js"></script>
+        <script src="data/DIEGOLASERNA_12.js"></script>
+        <script src="data/JORGETORRES_13.js"></script>
+        <script src="data/JUANCARLOSLOZADA_14.js"></script>
+        <script src="data/GABRIELSANTOS_15.js"></script>
+        <script src="data/SERGIOFERNANDEZ_16.js"></script>
+        <script src="data/JUANITAGOEBERTUS_17.js"></script>
+        <script src="data/KATHERINEMIRANDA_18.js"></script>
+        <script src="data/MAURICIOTORO_19.js"></script>
+        <script src="data/LEONIDASGOMEZ_20.js"></script>
+        <script src="data/ANTANASMOCKUS_21.js"></script>
+        <script src="data/ANGELICALOZANO_22.js"></script>
+        <script src="data/JUANLUISCASTRO_23.js"></script>
+        <script src="data/IVANMARULANDA_24.js"></script>
+        <script src="data/2daVUELVOTOENBLANCO_25.js"></script>
+        <script src="data/HUMBERTODELACALLE_26.js"></script>
+        <script src="data/SERGIOFAJARDO_27.js"></script>
+        <script src="data/Consulta_Anticorrupcion_50__Votado_28.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="http://www.cide.edu.co/cidevirtual/file.php/1/Normatividad_Derechos_de_Autor.pdf" target="_blank">Andres.Castiblanco-Derechos Reservados</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        var layer_GoogleMaps_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}', {
+            opacity: 1.0,
+            attribution: '',
+        });
+        layer_GoogleMaps_0;
+        map.addLayer(layer_GoogleMaps_0);
+        var img_MapadeCalorFinal_1 = 'data/MapadeCalorFinal_1.png';
+        var img_bounds_MapadeCalorFinal_1 = [[3.9855955284624334,-74.36358790656845],[4.823942740430018,-74.0163497858232]];
+        var layer_MapadeCalorFinal_1 = new L.imageOverlay(img_MapadeCalorFinal_1, img_bounds_MapadeCalorFinal_1);
+        bounds_group.addLayer(layer_MapadeCalorFinal_1);
+        var img_MapadeCalor2015_2 = 'data/MapadeCalor2015_2.png';
+        var img_bounds_MapadeCalor2015_2 = [[3.985445528462431,-74.36373790656846],[4.8239061772559735,-74.01638673881061]];
+        var layer_MapadeCalor2015_2 = new L.imageOverlay(img_MapadeCalor2015_2, img_bounds_MapadeCalor2015_2);
+        bounds_group.addLayer(layer_MapadeCalor2015_2);
+        var img_MapadeCalor2018_3 = 'data/MapadeCalor2018_3.png';
+        var img_bounds_MapadeCalor2018_3 = [[3.985445528462431,-74.36373790656846],[4.8239061772559735,-74.01638673881061]];
+        var layer_MapadeCalor2018_3 = new L.imageOverlay(img_MapadeCalor2018_3, img_bounds_MapadeCalor2018_3);
+        bounds_group.addLayer(layer_MapadeCalor2018_3);
+        function pop_FERNANDOROJAS_4(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">FER_ROJAS</th>\
+                        <td>' + (feature.properties['FER_ROJAS'] !== null ? Autolinker.link(String(feature.properties['FER_ROJAS'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_FERNANDOROJAS_4_0(feature) {
+            if (feature.properties['FER_ROJAS'] >= 0.000000 && feature.properties['FER_ROJAS'] <= 24.200000 ) {
+                return {
+                pane: 'pane_FERNANDOROJAS_4',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['FER_ROJAS'] >= 24.200000 && feature.properties['FER_ROJAS'] <= 48.400000 ) {
+                return {
+                pane: 'pane_FERNANDOROJAS_4',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['FER_ROJAS'] >= 48.400000 && feature.properties['FER_ROJAS'] <= 72.600000 ) {
+                return {
+                pane: 'pane_FERNANDOROJAS_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['FER_ROJAS'] >= 72.600000 && feature.properties['FER_ROJAS'] <= 96.800000 ) {
+                return {
+                pane: 'pane_FERNANDOROJAS_4',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['FER_ROJAS'] >= 96.800000 && feature.properties['FER_ROJAS'] <= 121.000000 ) {
+                return {
+                pane: 'pane_FERNANDOROJAS_4',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_FERNANDOROJAS_4');
+        map.getPane('pane_FERNANDOROJAS_4').style.zIndex = 404;
+        map.getPane('pane_FERNANDOROJAS_4').style['mix-blend-mode'] = 'normal';
+        var layer_FERNANDOROJAS_4 = new L.geoJson(json_FERNANDOROJAS_4, {
+            attribution: '',
+            pane: 'pane_FERNANDOROJAS_4',
+            onEachFeature: pop_FERNANDOROJAS_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_FERNANDOROJAS_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_FERNANDOROJAS_4);
+        function pop_JUANCARLOSFLOREZ_5(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">J_C_FLOREZ</th>\
+                        <td>' + (feature.properties['J_C_FLOREZ'] !== null ? Autolinker.link(String(feature.properties['J_C_FLOREZ'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JUANCARLOSFLOREZ_5_0(feature) {
+            if (feature.properties['J_C_FLOREZ'] >= 0.000000 && feature.properties['J_C_FLOREZ'] <= 236.000000 ) {
+                return {
+                pane: 'pane_JUANCARLOSFLOREZ_5',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['J_C_FLOREZ'] >= 236.000000 && feature.properties['J_C_FLOREZ'] <= 472.000000 ) {
+                return {
+                pane: 'pane_JUANCARLOSFLOREZ_5',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['J_C_FLOREZ'] >= 472.000000 && feature.properties['J_C_FLOREZ'] <= 708.000000 ) {
+                return {
+                pane: 'pane_JUANCARLOSFLOREZ_5',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['J_C_FLOREZ'] >= 708.000000 && feature.properties['J_C_FLOREZ'] <= 944.000000 ) {
+                return {
+                pane: 'pane_JUANCARLOSFLOREZ_5',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['J_C_FLOREZ'] >= 944.000000 && feature.properties['J_C_FLOREZ'] <= 1180.000000 ) {
+                return {
+                pane: 'pane_JUANCARLOSFLOREZ_5',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_JUANCARLOSFLOREZ_5');
+        map.getPane('pane_JUANCARLOSFLOREZ_5').style.zIndex = 405;
+        map.getPane('pane_JUANCARLOSFLOREZ_5').style['mix-blend-mode'] = 'normal';
+        var layer_JUANCARLOSFLOREZ_5 = new L.geoJson(json_JUANCARLOSFLOREZ_5, {
+            attribution: '',
+            pane: 'pane_JUANCARLOSFLOREZ_5',
+            onEachFeature: pop_JUANCARLOSFLOREZ_5,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JUANCARLOSFLOREZ_5_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JUANCARLOSFLOREZ_5);
+        function pop_GERMANRICAURTE_6(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">GER_RICAT</th>\
+                        <td>' + (feature.properties['GER_RICAT'] !== null ? Autolinker.link(String(feature.properties['GER_RICAT'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_GERMANRICAURTE_6_0(feature) {
+            if (feature.properties['GER_RICAT'] >= 0.000000 && feature.properties['GER_RICAT'] <= 49.800000 ) {
+                return {
+                pane: 'pane_GERMANRICAURTE_6',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['GER_RICAT'] >= 49.800000 && feature.properties['GER_RICAT'] <= 99.600000 ) {
+                return {
+                pane: 'pane_GERMANRICAURTE_6',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['GER_RICAT'] >= 99.600000 && feature.properties['GER_RICAT'] <= 149.400000 ) {
+                return {
+                pane: 'pane_GERMANRICAURTE_6',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['GER_RICAT'] >= 149.400000 && feature.properties['GER_RICAT'] <= 199.200000 ) {
+                return {
+                pane: 'pane_GERMANRICAURTE_6',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['GER_RICAT'] >= 199.200000 && feature.properties['GER_RICAT'] <= 249.000000 ) {
+                return {
+                pane: 'pane_GERMANRICAURTE_6',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_GERMANRICAURTE_6');
+        map.getPane('pane_GERMANRICAURTE_6').style.zIndex = 406;
+        map.getPane('pane_GERMANRICAURTE_6').style['mix-blend-mode'] = 'normal';
+        var layer_GERMANRICAURTE_6 = new L.geoJson(json_GERMANRICAURTE_6, {
+            attribution: '',
+            pane: 'pane_GERMANRICAURTE_6',
+            onEachFeature: pop_GERMANRICAURTE_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_GERMANRICAURTE_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_GERMANRICAURTE_6);
+        function pop_RODRIGOLOZANO_7(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ROD_LOZ</th>\
+                        <td>' + (feature.properties['ROD_LOZ'] !== null ? Autolinker.link(String(feature.properties['ROD_LOZ'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RODRIGOLOZANO_7_0(feature) {
+            if (feature.properties['ROD_LOZ'] >= 0.000000 && feature.properties['ROD_LOZ'] <= 222.800000 ) {
+                return {
+                pane: 'pane_RODRIGOLOZANO_7',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['ROD_LOZ'] >= 222.800000 && feature.properties['ROD_LOZ'] <= 445.600000 ) {
+                return {
+                pane: 'pane_RODRIGOLOZANO_7',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['ROD_LOZ'] >= 445.600000 && feature.properties['ROD_LOZ'] <= 668.400000 ) {
+                return {
+                pane: 'pane_RODRIGOLOZANO_7',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['ROD_LOZ'] >= 668.400000 && feature.properties['ROD_LOZ'] <= 891.200000 ) {
+                return {
+                pane: 'pane_RODRIGOLOZANO_7',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['ROD_LOZ'] >= 891.200000 && feature.properties['ROD_LOZ'] <= 1114.000000 ) {
+                return {
+                pane: 'pane_RODRIGOLOZANO_7',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_RODRIGOLOZANO_7');
+        map.getPane('pane_RODRIGOLOZANO_7').style.zIndex = 407;
+        map.getPane('pane_RODRIGOLOZANO_7').style['mix-blend-mode'] = 'normal';
+        var layer_RODRIGOLOZANO_7 = new L.geoJson(json_RODRIGOLOZANO_7, {
+            attribution: '',
+            pane: 'pane_RODRIGOLOZANO_7',
+            onEachFeature: pop_RODRIGOLOZANO_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_RODRIGOLOZANO_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_RODRIGOLOZANO_7);
+        function pop_JOSEDAVIDCASTELLANOS_8(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">JOSE_CAST</th>\
+                        <td>' + (feature.properties['JOSE_CAST'] !== null ? Autolinker.link(String(feature.properties['JOSE_CAST'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JOSEDAVIDCASTELLANOS_8_0(feature) {
+            if (feature.properties['JOSE_CAST'] >= 0.000000 && feature.properties['JOSE_CAST'] <= 91.600000 ) {
+                return {
+                pane: 'pane_JOSEDAVIDCASTELLANOS_8',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['JOSE_CAST'] >= 91.600000 && feature.properties['JOSE_CAST'] <= 183.200000 ) {
+                return {
+                pane: 'pane_JOSEDAVIDCASTELLANOS_8',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['JOSE_CAST'] >= 183.200000 && feature.properties['JOSE_CAST'] <= 274.800000 ) {
+                return {
+                pane: 'pane_JOSEDAVIDCASTELLANOS_8',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['JOSE_CAST'] >= 274.800000 && feature.properties['JOSE_CAST'] <= 366.400000 ) {
+                return {
+                pane: 'pane_JOSEDAVIDCASTELLANOS_8',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['JOSE_CAST'] >= 366.400000 && feature.properties['JOSE_CAST'] <= 458.000000 ) {
+                return {
+                pane: 'pane_JOSEDAVIDCASTELLANOS_8',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_JOSEDAVIDCASTELLANOS_8');
+        map.getPane('pane_JOSEDAVIDCASTELLANOS_8').style.zIndex = 408;
+        map.getPane('pane_JOSEDAVIDCASTELLANOS_8').style['mix-blend-mode'] = 'normal';
+        var layer_JOSEDAVIDCASTELLANOS_8 = new L.geoJson(json_JOSEDAVIDCASTELLANOS_8, {
+            attribution: '',
+            pane: 'pane_JOSEDAVIDCASTELLANOS_8',
+            onEachFeature: pop_JOSEDAVIDCASTELLANOS_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JOSEDAVIDCASTELLANOS_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JOSEDAVIDCASTELLANOS_8);
+        function pop_MARIAFROJAS_9(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MA_F_ROJAS</th>\
+                        <td>' + (feature.properties['MA_F_ROJAS'] !== null ? Autolinker.link(String(feature.properties['MA_F_ROJAS'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MARIAFROJAS_9_0(feature) {
+            if (feature.properties['MA_F_ROJAS'] >= 0.000000 && feature.properties['MA_F_ROJAS'] <= 47.200000 ) {
+                return {
+                pane: 'pane_MARIAFROJAS_9',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['MA_F_ROJAS'] >= 47.200000 && feature.properties['MA_F_ROJAS'] <= 94.400000 ) {
+                return {
+                pane: 'pane_MARIAFROJAS_9',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['MA_F_ROJAS'] >= 94.400000 && feature.properties['MA_F_ROJAS'] <= 141.600000 ) {
+                return {
+                pane: 'pane_MARIAFROJAS_9',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['MA_F_ROJAS'] >= 141.600000 && feature.properties['MA_F_ROJAS'] <= 188.800000 ) {
+                return {
+                pane: 'pane_MARIAFROJAS_9',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['MA_F_ROJAS'] >= 188.800000 && feature.properties['MA_F_ROJAS'] <= 236.000000 ) {
+                return {
+                pane: 'pane_MARIAFROJAS_9',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_MARIAFROJAS_9');
+        map.getPane('pane_MARIAFROJAS_9').style.zIndex = 409;
+        map.getPane('pane_MARIAFROJAS_9').style['mix-blend-mode'] = 'normal';
+        var layer_MARIAFROJAS_9 = new L.geoJson(json_MARIAFROJAS_9, {
+            attribution: '',
+            pane: 'pane_MARIAFROJAS_9',
+            onEachFeature: pop_MARIAFROJAS_9,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_MARIAFROJAS_9_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_MARIAFROJAS_9);
+        function pop_LUCIABASTIDAS_10(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LUC_BAST</th>\
+                        <td>' + (feature.properties['LUC_BAST'] !== null ? Autolinker.link(String(feature.properties['LUC_BAST'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LUCIABASTIDAS_10_0(feature) {
+            if (feature.properties['LUC_BAST'] >= 0.000000 && feature.properties['LUC_BAST'] <= 40.800000 ) {
+                return {
+                pane: 'pane_LUCIABASTIDAS_10',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['LUC_BAST'] >= 40.800000 && feature.properties['LUC_BAST'] <= 81.600000 ) {
+                return {
+                pane: 'pane_LUCIABASTIDAS_10',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['LUC_BAST'] >= 81.600000 && feature.properties['LUC_BAST'] <= 122.400000 ) {
+                return {
+                pane: 'pane_LUCIABASTIDAS_10',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['LUC_BAST'] >= 122.400000 && feature.properties['LUC_BAST'] <= 163.200000 ) {
+                return {
+                pane: 'pane_LUCIABASTIDAS_10',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['LUC_BAST'] >= 163.200000 && feature.properties['LUC_BAST'] <= 204.000000 ) {
+                return {
+                pane: 'pane_LUCIABASTIDAS_10',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_LUCIABASTIDAS_10');
+        map.getPane('pane_LUCIABASTIDAS_10').style.zIndex = 410;
+        map.getPane('pane_LUCIABASTIDAS_10').style['mix-blend-mode'] = 'normal';
+        var layer_LUCIABASTIDAS_10 = new L.geoJson(json_LUCIABASTIDAS_10, {
+            attribution: '',
+            pane: 'pane_LUCIABASTIDAS_10',
+            onEachFeature: pop_LUCIABASTIDAS_10,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_LUCIABASTIDAS_10_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_LUCIABASTIDAS_10);
+        function pop_DIEGOCANCINO_11(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DIEG_CANC</th>\
+                        <td>' + (feature.properties['DIEG_CANC'] !== null ? Autolinker.link(String(feature.properties['DIEG_CANC'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DIEGOCANCINO_11_0(feature) {
+            if (feature.properties['DIEG_CANC'] >= 0.000000 && feature.properties['DIEG_CANC'] <= 26.400000 ) {
+                return {
+                pane: 'pane_DIEGOCANCINO_11',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_CANC'] >= 26.400000 && feature.properties['DIEG_CANC'] <= 52.800000 ) {
+                return {
+                pane: 'pane_DIEGOCANCINO_11',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_CANC'] >= 52.800000 && feature.properties['DIEG_CANC'] <= 79.200000 ) {
+                return {
+                pane: 'pane_DIEGOCANCINO_11',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_CANC'] >= 79.200000 && feature.properties['DIEG_CANC'] <= 105.600000 ) {
+                return {
+                pane: 'pane_DIEGOCANCINO_11',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_CANC'] >= 105.600000 && feature.properties['DIEG_CANC'] <= 132.000000 ) {
+                return {
+                pane: 'pane_DIEGOCANCINO_11',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_DIEGOCANCINO_11');
+        map.getPane('pane_DIEGOCANCINO_11').style.zIndex = 411;
+        map.getPane('pane_DIEGOCANCINO_11').style['mix-blend-mode'] = 'normal';
+        var layer_DIEGOCANCINO_11 = new L.geoJson(json_DIEGOCANCINO_11, {
+            attribution: '',
+            pane: 'pane_DIEGOCANCINO_11',
+            onEachFeature: pop_DIEGOCANCINO_11,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_DIEGOCANCINO_11_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_DIEGOCANCINO_11);
+        function pop_DIEGOLASERNA_12(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">DIEG_LASER</th>\
+                        <td>' + (feature.properties['DIEG_LASER'] !== null ? Autolinker.link(String(feature.properties['DIEG_LASER'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_DIEGOLASERNA_12_0(feature) {
+            if (feature.properties['DIEG_LASER'] >= 0.000000 && feature.properties['DIEG_LASER'] <= 95.000000 ) {
+                return {
+                pane: 'pane_DIEGOLASERNA_12',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_LASER'] >= 95.000000 && feature.properties['DIEG_LASER'] <= 190.000000 ) {
+                return {
+                pane: 'pane_DIEGOLASERNA_12',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_LASER'] >= 190.000000 && feature.properties['DIEG_LASER'] <= 285.000000 ) {
+                return {
+                pane: 'pane_DIEGOLASERNA_12',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_LASER'] >= 285.000000 && feature.properties['DIEG_LASER'] <= 380.000000 ) {
+                return {
+                pane: 'pane_DIEGOLASERNA_12',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['DIEG_LASER'] >= 380.000000 && feature.properties['DIEG_LASER'] <= 475.000000 ) {
+                return {
+                pane: 'pane_DIEGOLASERNA_12',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_DIEGOLASERNA_12');
+        map.getPane('pane_DIEGOLASERNA_12').style.zIndex = 412;
+        map.getPane('pane_DIEGOLASERNA_12').style['mix-blend-mode'] = 'normal';
+        var layer_DIEGOLASERNA_12 = new L.geoJson(json_DIEGOLASERNA_12, {
+            attribution: '',
+            pane: 'pane_DIEGOLASERNA_12',
+            onEachFeature: pop_DIEGOLASERNA_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_DIEGOLASERNA_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_DIEGOLASERNA_12);
+        function pop_JORGETORRES_13(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">JOR_TORR</th>\
+                        <td>' + (feature.properties['JOR_TORR'] !== null ? Autolinker.link(String(feature.properties['JOR_TORR'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JORGETORRES_13_0(feature) {
+            if (feature.properties['JOR_TORR'] >= 0.000000 && feature.properties['JOR_TORR'] <= 73.400000 ) {
+                return {
+                pane: 'pane_JORGETORRES_13',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['JOR_TORR'] >= 73.400000 && feature.properties['JOR_TORR'] <= 146.800000 ) {
+                return {
+                pane: 'pane_JORGETORRES_13',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['JOR_TORR'] >= 146.800000 && feature.properties['JOR_TORR'] <= 220.200000 ) {
+                return {
+                pane: 'pane_JORGETORRES_13',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['JOR_TORR'] >= 220.200000 && feature.properties['JOR_TORR'] <= 293.600000 ) {
+                return {
+                pane: 'pane_JORGETORRES_13',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['JOR_TORR'] >= 293.600000 && feature.properties['JOR_TORR'] <= 367.000000 ) {
+                return {
+                pane: 'pane_JORGETORRES_13',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_JORGETORRES_13');
+        map.getPane('pane_JORGETORRES_13').style.zIndex = 413;
+        map.getPane('pane_JORGETORRES_13').style['mix-blend-mode'] = 'normal';
+        var layer_JORGETORRES_13 = new L.geoJson(json_JORGETORRES_13, {
+            attribution: '',
+            pane: 'pane_JORGETORRES_13',
+            onEachFeature: pop_JORGETORRES_13,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JORGETORRES_13_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JORGETORRES_13);
+        function pop_JUANCARLOSLOZADA_14(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">JUAN_LOZ</th>\
+                        <td>' + (feature.properties['JUAN_LOZ'] !== null ? Autolinker.link(String(feature.properties['JUAN_LOZ'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JUANCARLOSLOZADA_14_0(feature) {
+            if (feature.properties['JUAN_LOZ'] >= 0.000000 && feature.properties['JUAN_LOZ'] <= 84.600000 ) {
+                return {
+                pane: 'pane_JUANCARLOSLOZADA_14',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_LOZ'] >= 84.600000 && feature.properties['JUAN_LOZ'] <= 169.200000 ) {
+                return {
+                pane: 'pane_JUANCARLOSLOZADA_14',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_LOZ'] >= 169.200000 && feature.properties['JUAN_LOZ'] <= 253.800000 ) {
+                return {
+                pane: 'pane_JUANCARLOSLOZADA_14',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_LOZ'] >= 253.800000 && feature.properties['JUAN_LOZ'] <= 338.400000 ) {
+                return {
+                pane: 'pane_JUANCARLOSLOZADA_14',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_LOZ'] >= 338.400000 && feature.properties['JUAN_LOZ'] <= 423.000000 ) {
+                return {
+                pane: 'pane_JUANCARLOSLOZADA_14',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_JUANCARLOSLOZADA_14');
+        map.getPane('pane_JUANCARLOSLOZADA_14').style.zIndex = 414;
+        map.getPane('pane_JUANCARLOSLOZADA_14').style['mix-blend-mode'] = 'normal';
+        var layer_JUANCARLOSLOZADA_14 = new L.geoJson(json_JUANCARLOSLOZADA_14, {
+            attribution: '',
+            pane: 'pane_JUANCARLOSLOZADA_14',
+            onEachFeature: pop_JUANCARLOSLOZADA_14,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JUANCARLOSLOZADA_14_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JUANCARLOSLOZADA_14);
+        function pop_GABRIELSANTOS_15(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">GAB_SANT</th>\
+                        <td>' + (feature.properties['GAB_SANT'] !== null ? Autolinker.link(String(feature.properties['GAB_SANT'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_GABRIELSANTOS_15_0(feature) {
+            if (feature.properties['GAB_SANT'] >= 0.000000 && feature.properties['GAB_SANT'] <= 182.600000 ) {
+                return {
+                pane: 'pane_GABRIELSANTOS_15',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['GAB_SANT'] >= 182.600000 && feature.properties['GAB_SANT'] <= 365.200000 ) {
+                return {
+                pane: 'pane_GABRIELSANTOS_15',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['GAB_SANT'] >= 365.200000 && feature.properties['GAB_SANT'] <= 547.800000 ) {
+                return {
+                pane: 'pane_GABRIELSANTOS_15',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['GAB_SANT'] >= 547.800000 && feature.properties['GAB_SANT'] <= 730.400000 ) {
+                return {
+                pane: 'pane_GABRIELSANTOS_15',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['GAB_SANT'] >= 730.400000 && feature.properties['GAB_SANT'] <= 913.000000 ) {
+                return {
+                pane: 'pane_GABRIELSANTOS_15',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_GABRIELSANTOS_15');
+        map.getPane('pane_GABRIELSANTOS_15').style.zIndex = 415;
+        map.getPane('pane_GABRIELSANTOS_15').style['mix-blend-mode'] = 'normal';
+        var layer_GABRIELSANTOS_15 = new L.geoJson(json_GABRIELSANTOS_15, {
+            attribution: '',
+            pane: 'pane_GABRIELSANTOS_15',
+            onEachFeature: pop_GABRIELSANTOS_15,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_GABRIELSANTOS_15_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_GABRIELSANTOS_15);
+        function pop_SERGIOFERNANDEZ_16(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SER_FER</th>\
+                        <td>' + (feature.properties['SER_FER'] !== null ? Autolinker.link(String(feature.properties['SER_FER'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SERGIOFERNANDEZ_16_0(feature) {
+            if (feature.properties['SER_FER'] >= 0.000000 && feature.properties['SER_FER'] <= 62.600000 ) {
+                return {
+                pane: 'pane_SERGIOFERNANDEZ_16',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['SER_FER'] >= 62.600000 && feature.properties['SER_FER'] <= 125.200000 ) {
+                return {
+                pane: 'pane_SERGIOFERNANDEZ_16',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['SER_FER'] >= 125.200000 && feature.properties['SER_FER'] <= 187.800000 ) {
+                return {
+                pane: 'pane_SERGIOFERNANDEZ_16',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['SER_FER'] >= 187.800000 && feature.properties['SER_FER'] <= 250.400000 ) {
+                return {
+                pane: 'pane_SERGIOFERNANDEZ_16',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['SER_FER'] >= 250.400000 && feature.properties['SER_FER'] <= 313.000000 ) {
+                return {
+                pane: 'pane_SERGIOFERNANDEZ_16',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_SERGIOFERNANDEZ_16');
+        map.getPane('pane_SERGIOFERNANDEZ_16').style.zIndex = 416;
+        map.getPane('pane_SERGIOFERNANDEZ_16').style['mix-blend-mode'] = 'normal';
+        var layer_SERGIOFERNANDEZ_16 = new L.geoJson(json_SERGIOFERNANDEZ_16, {
+            attribution: '',
+            pane: 'pane_SERGIOFERNANDEZ_16',
+            onEachFeature: pop_SERGIOFERNANDEZ_16,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_SERGIOFERNANDEZ_16_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SERGIOFERNANDEZ_16);
+        function pop_JUANITAGOEBERTUS_17(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">JUAN_GOE</th>\
+                        <td>' + (feature.properties['JUAN_GOE'] !== null ? Autolinker.link(String(feature.properties['JUAN_GOE'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JUANITAGOEBERTUS_17_0(feature) {
+            if (feature.properties['JUAN_GOE'] >= 0.000000 && feature.properties['JUAN_GOE'] <= 420.800000 ) {
+                return {
+                pane: 'pane_JUANITAGOEBERTUS_17',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_GOE'] >= 420.800000 && feature.properties['JUAN_GOE'] <= 841.600000 ) {
+                return {
+                pane: 'pane_JUANITAGOEBERTUS_17',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_GOE'] >= 841.600000 && feature.properties['JUAN_GOE'] <= 1262.400000 ) {
+                return {
+                pane: 'pane_JUANITAGOEBERTUS_17',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_GOE'] >= 1262.400000 && feature.properties['JUAN_GOE'] <= 1683.200000 ) {
+                return {
+                pane: 'pane_JUANITAGOEBERTUS_17',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_GOE'] >= 1683.200000 && feature.properties['JUAN_GOE'] <= 2104.000000 ) {
+                return {
+                pane: 'pane_JUANITAGOEBERTUS_17',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_JUANITAGOEBERTUS_17');
+        map.getPane('pane_JUANITAGOEBERTUS_17').style.zIndex = 417;
+        map.getPane('pane_JUANITAGOEBERTUS_17').style['mix-blend-mode'] = 'normal';
+        var layer_JUANITAGOEBERTUS_17 = new L.geoJson(json_JUANITAGOEBERTUS_17, {
+            attribution: '',
+            pane: 'pane_JUANITAGOEBERTUS_17',
+            onEachFeature: pop_JUANITAGOEBERTUS_17,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JUANITAGOEBERTUS_17_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JUANITAGOEBERTUS_17);
+        function pop_KATHERINEMIRANDA_18(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">KAT_MIR</th>\
+                        <td>' + (feature.properties['KAT_MIR'] !== null ? Autolinker.link(String(feature.properties['KAT_MIR'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_KATHERINEMIRANDA_18_0(feature) {
+            if (feature.properties['KAT_MIR'] >= 0.000000 && feature.properties['KAT_MIR'] <= 182.400000 ) {
+                return {
+                pane: 'pane_KATHERINEMIRANDA_18',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['KAT_MIR'] >= 182.400000 && feature.properties['KAT_MIR'] <= 364.800000 ) {
+                return {
+                pane: 'pane_KATHERINEMIRANDA_18',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['KAT_MIR'] >= 364.800000 && feature.properties['KAT_MIR'] <= 547.200000 ) {
+                return {
+                pane: 'pane_KATHERINEMIRANDA_18',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['KAT_MIR'] >= 547.200000 && feature.properties['KAT_MIR'] <= 729.600000 ) {
+                return {
+                pane: 'pane_KATHERINEMIRANDA_18',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['KAT_MIR'] >= 729.600000 && feature.properties['KAT_MIR'] <= 912.000000 ) {
+                return {
+                pane: 'pane_KATHERINEMIRANDA_18',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_KATHERINEMIRANDA_18');
+        map.getPane('pane_KATHERINEMIRANDA_18').style.zIndex = 418;
+        map.getPane('pane_KATHERINEMIRANDA_18').style['mix-blend-mode'] = 'normal';
+        var layer_KATHERINEMIRANDA_18 = new L.geoJson(json_KATHERINEMIRANDA_18, {
+            attribution: '',
+            pane: 'pane_KATHERINEMIRANDA_18',
+            onEachFeature: pop_KATHERINEMIRANDA_18,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_KATHERINEMIRANDA_18_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_KATHERINEMIRANDA_18);
+        function pop_MAURICIOTORO_19(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">MAU_TOR</th>\
+                        <td>' + (feature.properties['MAU_TOR'] !== null ? Autolinker.link(String(feature.properties['MAU_TOR'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_MAURICIOTORO_19_0(feature) {
+            if (feature.properties['MAU_TOR'] >= 0.000000 && feature.properties['MAU_TOR'] <= 73.200000 ) {
+                return {
+                pane: 'pane_MAURICIOTORO_19',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['MAU_TOR'] >= 73.200000 && feature.properties['MAU_TOR'] <= 146.400000 ) {
+                return {
+                pane: 'pane_MAURICIOTORO_19',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['MAU_TOR'] >= 146.400000 && feature.properties['MAU_TOR'] <= 219.600000 ) {
+                return {
+                pane: 'pane_MAURICIOTORO_19',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['MAU_TOR'] >= 219.600000 && feature.properties['MAU_TOR'] <= 292.800000 ) {
+                return {
+                pane: 'pane_MAURICIOTORO_19',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['MAU_TOR'] >= 292.800000 && feature.properties['MAU_TOR'] <= 366.000000 ) {
+                return {
+                pane: 'pane_MAURICIOTORO_19',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_MAURICIOTORO_19');
+        map.getPane('pane_MAURICIOTORO_19').style.zIndex = 419;
+        map.getPane('pane_MAURICIOTORO_19').style['mix-blend-mode'] = 'normal';
+        var layer_MAURICIOTORO_19 = new L.geoJson(json_MAURICIOTORO_19, {
+            attribution: '',
+            pane: 'pane_MAURICIOTORO_19',
+            onEachFeature: pop_MAURICIOTORO_19,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_MAURICIOTORO_19_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_MAURICIOTORO_19);
+        function pop_LEONIDASGOMEZ_20(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">LEO_GOM</th>\
+                        <td>' + (feature.properties['LEO_GOM'] !== null ? Autolinker.link(String(feature.properties['LEO_GOM'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_LEONIDASGOMEZ_20_0(feature) {
+            if (feature.properties['LEO_GOM'] >= 0.000000 && feature.properties['LEO_GOM'] <= 6.200000 ) {
+                return {
+                pane: 'pane_LEONIDASGOMEZ_20',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['LEO_GOM'] >= 6.200000 && feature.properties['LEO_GOM'] <= 12.400000 ) {
+                return {
+                pane: 'pane_LEONIDASGOMEZ_20',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['LEO_GOM'] >= 12.400000 && feature.properties['LEO_GOM'] <= 18.600000 ) {
+                return {
+                pane: 'pane_LEONIDASGOMEZ_20',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['LEO_GOM'] >= 18.600000 && feature.properties['LEO_GOM'] <= 24.800000 ) {
+                return {
+                pane: 'pane_LEONIDASGOMEZ_20',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['LEO_GOM'] >= 24.800000 && feature.properties['LEO_GOM'] <= 31.000000 ) {
+                return {
+                pane: 'pane_LEONIDASGOMEZ_20',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_LEONIDASGOMEZ_20');
+        map.getPane('pane_LEONIDASGOMEZ_20').style.zIndex = 420;
+        map.getPane('pane_LEONIDASGOMEZ_20').style['mix-blend-mode'] = 'normal';
+        var layer_LEONIDASGOMEZ_20 = new L.geoJson(json_LEONIDASGOMEZ_20, {
+            attribution: '',
+            pane: 'pane_LEONIDASGOMEZ_20',
+            onEachFeature: pop_LEONIDASGOMEZ_20,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_LEONIDASGOMEZ_20_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_LEONIDASGOMEZ_20);
+        function pop_ANTANASMOCKUS_21(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ANT_MOCK</th>\
+                        <td>' + (feature.properties['ANT_MOCK'] !== null ? Autolinker.link(String(feature.properties['ANT_MOCK'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ANTANASMOCKUS_21_0(feature) {
+            if (feature.properties['ANT_MOCK'] >= 0.000000 && feature.properties['ANT_MOCK'] <= 877.200000 ) {
+                return {
+                pane: 'pane_ANTANASMOCKUS_21',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['ANT_MOCK'] >= 877.200000 && feature.properties['ANT_MOCK'] <= 1754.400000 ) {
+                return {
+                pane: 'pane_ANTANASMOCKUS_21',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['ANT_MOCK'] >= 1754.400000 && feature.properties['ANT_MOCK'] <= 2631.600000 ) {
+                return {
+                pane: 'pane_ANTANASMOCKUS_21',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['ANT_MOCK'] >= 2631.600000 && feature.properties['ANT_MOCK'] <= 3508.800000 ) {
+                return {
+                pane: 'pane_ANTANASMOCKUS_21',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['ANT_MOCK'] >= 3508.800000 && feature.properties['ANT_MOCK'] <= 4386.000000 ) {
+                return {
+                pane: 'pane_ANTANASMOCKUS_21',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_ANTANASMOCKUS_21');
+        map.getPane('pane_ANTANASMOCKUS_21').style.zIndex = 421;
+        map.getPane('pane_ANTANASMOCKUS_21').style['mix-blend-mode'] = 'normal';
+        var layer_ANTANASMOCKUS_21 = new L.geoJson(json_ANTANASMOCKUS_21, {
+            attribution: '',
+            pane: 'pane_ANTANASMOCKUS_21',
+            onEachFeature: pop_ANTANASMOCKUS_21,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ANTANASMOCKUS_21_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ANTANASMOCKUS_21);
+        function pop_ANGELICALOZANO_22(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">ANG_LOZ</th>\
+                        <td>' + (feature.properties['ANG_LOZ'] !== null ? Autolinker.link(String(feature.properties['ANG_LOZ'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_ANGELICALOZANO_22_0(feature) {
+            if (feature.properties['ANG_LOZ'] >= 0.000000 && feature.properties['ANG_LOZ'] <= 209.200000 ) {
+                return {
+                pane: 'pane_ANGELICALOZANO_22',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['ANG_LOZ'] >= 209.200000 && feature.properties['ANG_LOZ'] <= 418.400000 ) {
+                return {
+                pane: 'pane_ANGELICALOZANO_22',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['ANG_LOZ'] >= 418.400000 && feature.properties['ANG_LOZ'] <= 627.600000 ) {
+                return {
+                pane: 'pane_ANGELICALOZANO_22',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['ANG_LOZ'] >= 627.600000 && feature.properties['ANG_LOZ'] <= 836.800000 ) {
+                return {
+                pane: 'pane_ANGELICALOZANO_22',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['ANG_LOZ'] >= 836.800000 && feature.properties['ANG_LOZ'] <= 1046.000000 ) {
+                return {
+                pane: 'pane_ANGELICALOZANO_22',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_ANGELICALOZANO_22');
+        map.getPane('pane_ANGELICALOZANO_22').style.zIndex = 422;
+        map.getPane('pane_ANGELICALOZANO_22').style['mix-blend-mode'] = 'normal';
+        var layer_ANGELICALOZANO_22 = new L.geoJson(json_ANGELICALOZANO_22, {
+            attribution: '',
+            pane: 'pane_ANGELICALOZANO_22',
+            onEachFeature: pop_ANGELICALOZANO_22,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ANGELICALOZANO_22_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ANGELICALOZANO_22);
+        function pop_JUANLUISCASTRO_23(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">JUAN_CAS</th>\
+                        <td>' + (feature.properties['JUAN_CAS'] !== null ? Autolinker.link(String(feature.properties['JUAN_CAS'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_JUANLUISCASTRO_23_0(feature) {
+            if (feature.properties['JUAN_CAS'] >= 0.000000 && feature.properties['JUAN_CAS'] <= 14.400000 ) {
+                return {
+                pane: 'pane_JUANLUISCASTRO_23',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_CAS'] >= 14.400000 && feature.properties['JUAN_CAS'] <= 28.800000 ) {
+                return {
+                pane: 'pane_JUANLUISCASTRO_23',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_CAS'] >= 28.800000 && feature.properties['JUAN_CAS'] <= 43.200000 ) {
+                return {
+                pane: 'pane_JUANLUISCASTRO_23',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_CAS'] >= 43.200000 && feature.properties['JUAN_CAS'] <= 57.600000 ) {
+                return {
+                pane: 'pane_JUANLUISCASTRO_23',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['JUAN_CAS'] >= 57.600000 && feature.properties['JUAN_CAS'] <= 72.000000 ) {
+                return {
+                pane: 'pane_JUANLUISCASTRO_23',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_JUANLUISCASTRO_23');
+        map.getPane('pane_JUANLUISCASTRO_23').style.zIndex = 423;
+        map.getPane('pane_JUANLUISCASTRO_23').style['mix-blend-mode'] = 'normal';
+        var layer_JUANLUISCASTRO_23 = new L.geoJson(json_JUANLUISCASTRO_23, {
+            attribution: '',
+            pane: 'pane_JUANLUISCASTRO_23',
+            onEachFeature: pop_JUANLUISCASTRO_23,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_JUANLUISCASTRO_23_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_JUANLUISCASTRO_23);
+        function pop_IVANMARULANDA_24(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Lugar</th>\
+                        <td>' + (feature.properties['Lugar'] !== null ? Autolinker.link(String(feature.properties['Lugar'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">IVAN_MAR</th>\
+                        <td>' + (feature.properties['IVAN_MAR'] !== null ? Autolinker.link(String(feature.properties['IVAN_MAR'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_IVANMARULANDA_24_0(feature) {
+            if (feature.properties['IVAN_MAR'] >= 0.000000 && feature.properties['IVAN_MAR'] <= 29.200000 ) {
+                return {
+                pane: 'pane_IVANMARULANDA_24',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['IVAN_MAR'] >= 29.200000 && feature.properties['IVAN_MAR'] <= 58.400000 ) {
+                return {
+                pane: 'pane_IVANMARULANDA_24',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['IVAN_MAR'] >= 58.400000 && feature.properties['IVAN_MAR'] <= 87.600000 ) {
+                return {
+                pane: 'pane_IVANMARULANDA_24',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,192,1.0)',
+            }
+            }
+            if (feature.properties['IVAN_MAR'] >= 87.600000 && feature.properties['IVAN_MAR'] <= 116.800000 ) {
+                return {
+                pane: 'pane_IVANMARULANDA_24',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(166,217,106,1.0)',
+            }
+            }
+            if (feature.properties['IVAN_MAR'] >= 116.800000 && feature.properties['IVAN_MAR'] <= 146.000000 ) {
+                return {
+                pane: 'pane_IVANMARULANDA_24',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(26,150,65,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_IVANMARULANDA_24');
+        map.getPane('pane_IVANMARULANDA_24').style.zIndex = 424;
+        map.getPane('pane_IVANMARULANDA_24').style['mix-blend-mode'] = 'normal';
+        var layer_IVANMARULANDA_24 = new L.geoJson(json_IVANMARULANDA_24, {
+            attribution: '',
+            pane: 'pane_IVANMARULANDA_24',
+            onEachFeature: pop_IVANMARULANDA_24,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_IVANMARULANDA_24_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_IVANMARULANDA_24);
+        function pop_2daVUELVOTOENBLANCO_25(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">BLANCO</th>\
+                        <td>' + (feature.properties['BLANCO'] !== null ? Autolinker.link(String(feature.properties['BLANCO'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_2daVUELVOTOENBLANCO_25_0(feature) {
+            if (feature.properties['BLANCO'] >= 0.000000 && feature.properties['BLANCO'] <= 398.400000 ) {
+                return {
+                pane: 'pane_2daVUELVOTOENBLANCO_25',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(215,25,28,1.0)',
+            }
+            }
+            if (feature.properties['BLANCO'] >= 398.400000 && feature.properties['BLANCO'] <= 796.800000 ) {
+                return {
+                pane: 'pane_2daVUELVOTOENBLANCO_25',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,174,97,1.0)',
+            }
+            }
+            if (feature.properties['BLANCO'] >= 796.800000 && feature.properties['BLANCO'] <= 1195.200000 ) {
+                return {
+                pane: 'pane_2daVUELVOTOENBLANCO_25',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,191,1.0)',
+            }
+            }
+            if (feature.properties['BLANCO'] >= 1195.200000 && feature.properties['BLANCO'] <= 1593.600000 ) {
+                return {
+                pane: 'pane_2daVUELVOTOENBLANCO_25',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(171,221,164,1.0)',
+            }
+            }
+            if (feature.properties['BLANCO'] >= 1593.600000 && feature.properties['BLANCO'] <= 1992.000000 ) {
+                return {
+                pane: 'pane_2daVUELVOTOENBLANCO_25',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(43,131,186,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_2daVUELVOTOENBLANCO_25');
+        map.getPane('pane_2daVUELVOTOENBLANCO_25').style.zIndex = 425;
+        map.getPane('pane_2daVUELVOTOENBLANCO_25').style['mix-blend-mode'] = 'normal';
+        var layer_2daVUELVOTOENBLANCO_25 = new L.geoJson(json_2daVUELVOTOENBLANCO_25, {
+            attribution: '',
+            pane: 'pane_2daVUELVOTOENBLANCO_25',
+            onEachFeature: pop_2daVUELVOTOENBLANCO_25,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_2daVUELVOTOENBLANCO_25_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_2daVUELVOTOENBLANCO_25);
+        function pop_HUMBERTODELACALLE_26(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">HUM_CLL</th>\
+                        <td>' + (feature.properties['HUM_CLL'] !== null ? Autolinker.link(String(feature.properties['HUM_CLL'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_HUMBERTODELACALLE_26_0(feature) {
+            if (feature.properties['HUM_CLL'] >= 0.000000 && feature.properties['HUM_CLL'] <= 194.200000 ) {
+                return {
+                pane: 'pane_HUMBERTODELACALLE_26',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,231,37,1.0)',
+            }
+            }
+            if (feature.properties['HUM_CLL'] >= 194.200000 && feature.properties['HUM_CLL'] <= 388.400000 ) {
+                return {
+                pane: 'pane_HUMBERTODELACALLE_26',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(93,201,98,1.0)',
+            }
+            }
+            if (feature.properties['HUM_CLL'] >= 388.400000 && feature.properties['HUM_CLL'] <= 582.600000 ) {
+                return {
+                pane: 'pane_HUMBERTODELACALLE_26',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,144,141,1.0)',
+            }
+            }
+            if (feature.properties['HUM_CLL'] >= 582.600000 && feature.properties['HUM_CLL'] <= 776.800000 ) {
+                return {
+                pane: 'pane_HUMBERTODELACALLE_26',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,82,139,1.0)',
+            }
+            }
+            if (feature.properties['HUM_CLL'] >= 776.800000 && feature.properties['HUM_CLL'] <= 971.000000 ) {
+                return {
+                pane: 'pane_HUMBERTODELACALLE_26',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,1,84,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_HUMBERTODELACALLE_26');
+        map.getPane('pane_HUMBERTODELACALLE_26').style.zIndex = 426;
+        map.getPane('pane_HUMBERTODELACALLE_26').style['mix-blend-mode'] = 'normal';
+        var layer_HUMBERTODELACALLE_26 = new L.geoJson(json_HUMBERTODELACALLE_26, {
+            attribution: '',
+            pane: 'pane_HUMBERTODELACALLE_26',
+            onEachFeature: pop_HUMBERTODELACALLE_26,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_HUMBERTODELACALLE_26_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_HUMBERTODELACALLE_26);
+        function pop_SERGIOFAJARDO_27(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">SER_FAJ</th>\
+                        <td>' + (feature.properties['SER_FAJ'] !== null ? Autolinker.link(String(feature.properties['SER_FAJ'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_SERGIOFAJARDO_27_0(feature) {
+            if (feature.properties['SER_FAJ'] >= 3.000000 && feature.properties['SER_FAJ'] <= 2073.000000 ) {
+                return {
+                pane: 'pane_SERGIOFAJARDO_27',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,231,37,1.0)',
+            }
+            }
+            if (feature.properties['SER_FAJ'] >= 2073.000000 && feature.properties['SER_FAJ'] <= 4143.000000 ) {
+                return {
+                pane: 'pane_SERGIOFAJARDO_27',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(93,201,98,1.0)',
+            }
+            }
+            if (feature.properties['SER_FAJ'] >= 4143.000000 && feature.properties['SER_FAJ'] <= 6213.000000 ) {
+                return {
+                pane: 'pane_SERGIOFAJARDO_27',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,144,141,1.0)',
+            }
+            }
+            if (feature.properties['SER_FAJ'] >= 6213.000000 && feature.properties['SER_FAJ'] <= 8283.000000 ) {
+                return {
+                pane: 'pane_SERGIOFAJARDO_27',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,82,139,1.0)',
+            }
+            }
+            if (feature.properties['SER_FAJ'] >= 8283.000000 && feature.properties['SER_FAJ'] <= 10353.000000 ) {
+                return {
+                pane: 'pane_SERGIOFAJARDO_27',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,1,84,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_SERGIOFAJARDO_27');
+        map.getPane('pane_SERGIOFAJARDO_27').style.zIndex = 427;
+        map.getPane('pane_SERGIOFAJARDO_27').style['mix-blend-mode'] = 'normal';
+        var layer_SERGIOFAJARDO_27 = new L.geoJson(json_SERGIOFAJARDO_27, {
+            attribution: '',
+            pane: 'pane_SERGIOFAJARDO_27',
+            onEachFeature: pop_SERGIOFAJARDO_27,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_SERGIOFAJARDO_27_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_SERGIOFAJARDO_27);
+        map.addLayer(layer_SERGIOFAJARDO_27);
+        function pop_Consulta_Anticorrupcion_50__Votado_28(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">ID_2018</th>\
+                        <td>' + (feature.properties['ID_2018'] !== null ? Autolinker.link(String(feature.properties['ID_2018'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Localidad</th>\
+                        <td>' + (feature.properties['Localidad'] !== null ? Autolinker.link(String(feature.properties['Localidad'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Puesto</th>\
+                        <td>' + (feature.properties['Puesto'] !== null ? Autolinker.link(String(feature.properties['Puesto'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? Autolinker.link(String(feature.properties['Nombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Direccion</th>\
+                        <td>' + (feature.properties['Direccion'] !== null ? Autolinker.link(String(feature.properties['Direccion'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PROM_7</th>\
+                        <td>' + (feature.properties['PROM_7'] !== null ? Autolinker.link(String(feature.properties['PROM_7'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Consulta_Anticorrupcion_50__Votado_28_0(feature) {
+            if (feature.properties['PROM_7'] >= 3405.000000 && feature.properties['PROM_7'] <= 6400.800000 ) {
+                return {
+                pane: 'pane_Consulta_Anticorrupcion_50__Votado_28',
+                radius: 2.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(64,64,64,1.0)',
+            }
+            }
+            if (feature.properties['PROM_7'] >= 6400.800000 && feature.properties['PROM_7'] <= 9396.600000 ) {
+                return {
+                pane: 'pane_Consulta_Anticorrupcion_50__Votado_28',
+                radius: 3.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(186,186,186,1.0)',
+            }
+            }
+            if (feature.properties['PROM_7'] >= 9396.600000 && feature.properties['PROM_7'] <= 12392.400000 ) {
+                return {
+                pane: 'pane_Consulta_Anticorrupcion_50__Votado_28',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+            }
+            }
+            if (feature.properties['PROM_7'] >= 12392.400000 && feature.properties['PROM_7'] <= 15388.200000 ) {
+                return {
+                pane: 'pane_Consulta_Anticorrupcion_50__Votado_28',
+                radius: 5.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(244,165,130,1.0)',
+            }
+            }
+            if (feature.properties['PROM_7'] >= 15388.200000 && feature.properties['PROM_7'] <= 18384.000000 ) {
+                return {
+                pane: 'pane_Consulta_Anticorrupcion_50__Votado_28',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,0,32,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Consulta_Anticorrupcion_50__Votado_28');
+        map.getPane('pane_Consulta_Anticorrupcion_50__Votado_28').style.zIndex = 428;
+        map.getPane('pane_Consulta_Anticorrupcion_50__Votado_28').style['mix-blend-mode'] = 'normal';
+        var layer_Consulta_Anticorrupcion_50__Votado_28 = new L.geoJson(json_Consulta_Anticorrupcion_50__Votado_28, {
+            attribution: '',
+            pane: 'pane_Consulta_Anticorrupcion_50__Votado_28',
+            onEachFeature: pop_Consulta_Anticorrupcion_50__Votado_28,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Consulta_Anticorrupcion_50__Votado_28_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Consulta_Anticorrupcion_50__Votado_28);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'Consulta_Anticorrupcion_50%_+_Votado<br /><table><tr><td style="text-align: center;"><img src="legend/Consulta_Anticorrupcion_50__Votado_28_340564010.png" /></td><td>3405 - 6401</td></tr><tr><td style="text-align: center;"><img src="legend/Consulta_Anticorrupcion_50__Votado_28_640193971.png" /></td><td>6401 - 9397</td></tr><tr><td style="text-align: center;"><img src="legend/Consulta_Anticorrupcion_50__Votado_28_9397123922.png" /></td><td>9397 - 12392</td></tr><tr><td style="text-align: center;"><img src="legend/Consulta_Anticorrupcion_50__Votado_28_12392153883.png" /></td><td>12392 - 15388</td></tr><tr><td style="text-align: center;"><img src="legend/Consulta_Anticorrupcion_50__Votado_28_15388183844.png" /></td><td>15388 - 18384</td></tr></table>': layer_Consulta_Anticorrupcion_50__Votado_28,'SERGIO FAJARDO<br /><table><tr><td style="text-align: center;"><img src="legend/SERGIOFAJARDO_27_320730.png" /></td><td>3 - 2073</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFAJARDO_27_207341431.png" /></td><td>2073 - 4143</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFAJARDO_27_414362132.png" /></td><td>4143 - 6213</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFAJARDO_27_621382833.png" /></td><td>6213 - 8283</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFAJARDO_27_8283103534.png" /></td><td>8283 - 10353</td></tr></table>': layer_SERGIOFAJARDO_27,'HUMBERTO DE LA CALLE<br /><table><tr><td style="text-align: center;"><img src="legend/HUMBERTODELACALLE_26_01940.png" /></td><td>0 - 194</td></tr><tr><td style="text-align: center;"><img src="legend/HUMBERTODELACALLE_26_1943881.png" /></td><td>194 - 388</td></tr><tr><td style="text-align: center;"><img src="legend/HUMBERTODELACALLE_26_3885832.png" /></td><td>388 - 583</td></tr><tr><td style="text-align: center;"><img src="legend/HUMBERTODELACALLE_26_5837773.png" /></td><td>583 - 777</td></tr><tr><td style="text-align: center;"><img src="legend/HUMBERTODELACALLE_26_7779714.png" /></td><td>777 - 971</td></tr></table>': layer_HUMBERTODELACALLE_26,'2da VUEL-VOTO EN BLANCO<br /><table><tr><td style="text-align: center;"><img src="legend/2daVUELVOTOENBLANCO_25_0000039840000.png" /></td><td>0,0000 - 398,4000</td></tr><tr><td style="text-align: center;"><img src="legend/2daVUELVOTOENBLANCO_25_398400079680001.png" /></td><td>398,4000 - 796,8000</td></tr><tr><td style="text-align: center;"><img src="legend/2daVUELVOTOENBLANCO_25_7968000119520002.png" /></td><td>796,8000 - 1195,2000</td></tr><tr><td style="text-align: center;"><img src="legend/2daVUELVOTOENBLANCO_25_11952000159360003.png" /></td><td>1195,2000 - 1593,6000</td></tr><tr><td style="text-align: center;"><img src="legend/2daVUELVOTOENBLANCO_25_15936000199200004.png" /></td><td>1593,6000 - 1992,0000</td></tr></table>': layer_2daVUELVOTOENBLANCO_25,'IVAN MARULANDA<br /><table><tr><td style="text-align: center;"><img src="legend/IVANMARULANDA_24_0290.png" /></td><td> 0 - 29 </td></tr><tr><td style="text-align: center;"><img src="legend/IVANMARULANDA_24_29581.png" /></td><td> 29 - 58 </td></tr><tr><td style="text-align: center;"><img src="legend/IVANMARULANDA_24_58882.png" /></td><td> 58 - 88 </td></tr><tr><td style="text-align: center;"><img src="legend/IVANMARULANDA_24_881173.png" /></td><td> 88 - 117 </td></tr><tr><td style="text-align: center;"><img src="legend/IVANMARULANDA_24_1171464.png" /></td><td> 117 - 146 </td></tr></table>': layer_IVANMARULANDA_24,'JUAN LUIS CASTRO<br /><table><tr><td style="text-align: center;"><img src="legend/JUANLUISCASTRO_23_0140.png" /></td><td> 0 - 14 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANLUISCASTRO_23_14291.png" /></td><td> 14 - 29 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANLUISCASTRO_23_29432.png" /></td><td> 29 - 43 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANLUISCASTRO_23_43583.png" /></td><td> 43 - 58 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANLUISCASTRO_23_58724.png" /></td><td> 58 - 72 </td></tr></table>': layer_JUANLUISCASTRO_23,'ANGELICA LOZANO<br /><table><tr><td style="text-align: center;"><img src="legend/ANGELICALOZANO_22_02090.png" /></td><td> 0 - 209 </td></tr><tr><td style="text-align: center;"><img src="legend/ANGELICALOZANO_22_2094181.png" /></td><td> 209 - 418 </td></tr><tr><td style="text-align: center;"><img src="legend/ANGELICALOZANO_22_4186282.png" /></td><td> 418 - 628 </td></tr><tr><td style="text-align: center;"><img src="legend/ANGELICALOZANO_22_6288373.png" /></td><td> 628 - 837 </td></tr><tr><td style="text-align: center;"><img src="legend/ANGELICALOZANO_22_83710464.png" /></td><td> 837 - 1046 </td></tr></table>': layer_ANGELICALOZANO_22,'ANTANAS MOCKUS<br /><table><tr><td style="text-align: center;"><img src="legend/ANTANASMOCKUS_21_08770.png" /></td><td> 0 - 877 </td></tr><tr><td style="text-align: center;"><img src="legend/ANTANASMOCKUS_21_87717541.png" /></td><td> 877 - 1754 </td></tr><tr><td style="text-align: center;"><img src="legend/ANTANASMOCKUS_21_175426322.png" /></td><td> 1754 - 2632 </td></tr><tr><td style="text-align: center;"><img src="legend/ANTANASMOCKUS_21_263235093.png" /></td><td> 2632 - 3509 </td></tr><tr><td style="text-align: center;"><img src="legend/ANTANASMOCKUS_21_350943864.png" /></td><td> 3509 - 4386 </td></tr></table>': layer_ANTANASMOCKUS_21,'LEONIDAS GOMEZ<br /><table><tr><td style="text-align: center;"><img src="legend/LEONIDASGOMEZ_20_060.png" /></td><td> 0 - 6 </td></tr><tr><td style="text-align: center;"><img src="legend/LEONIDASGOMEZ_20_6121.png" /></td><td> 6 - 12 </td></tr><tr><td style="text-align: center;"><img src="legend/LEONIDASGOMEZ_20_12192.png" /></td><td> 12 - 19 </td></tr><tr><td style="text-align: center;"><img src="legend/LEONIDASGOMEZ_20_19253.png" /></td><td> 19 - 25 </td></tr><tr><td style="text-align: center;"><img src="legend/LEONIDASGOMEZ_20_25314.png" /></td><td> 25 - 31 </td></tr></table>': layer_LEONIDASGOMEZ_20,'MAURICIO TORO<br /><table><tr><td style="text-align: center;"><img src="legend/MAURICIOTORO_19_0730.png" /></td><td>0 - 73</td></tr><tr><td style="text-align: center;"><img src="legend/MAURICIOTORO_19_731461.png" /></td><td>73 - 146</td></tr><tr><td style="text-align: center;"><img src="legend/MAURICIOTORO_19_1462202.png" /></td><td>146 - 220</td></tr><tr><td style="text-align: center;"><img src="legend/MAURICIOTORO_19_2202933.png" /></td><td>220 - 293</td></tr><tr><td style="text-align: center;"><img src="legend/MAURICIOTORO_19_2933664.png" /></td><td>293 - 366</td></tr></table>': layer_MAURICIOTORO_19,'KATHERINE MIRANDA<br /><table><tr><td style="text-align: center;"><img src="legend/KATHERINEMIRANDA_18_01820.png" /></td><td>0 - 182</td></tr><tr><td style="text-align: center;"><img src="legend/KATHERINEMIRANDA_18_1823651.png" /></td><td>182 - 365</td></tr><tr><td style="text-align: center;"><img src="legend/KATHERINEMIRANDA_18_3655472.png" /></td><td>365 - 547</td></tr><tr><td style="text-align: center;"><img src="legend/KATHERINEMIRANDA_18_5477303.png" /></td><td>547 - 730</td></tr><tr><td style="text-align: center;"><img src="legend/KATHERINEMIRANDA_18_7309124.png" /></td><td>730 - 912</td></tr></table>': layer_KATHERINEMIRANDA_18,'JUANITA GOEBERTUS<br /><table><tr><td style="text-align: center;"><img src="legend/JUANITAGOEBERTUS_17_04210.png" /></td><td>0 - 421</td></tr><tr><td style="text-align: center;"><img src="legend/JUANITAGOEBERTUS_17_4218421.png" /></td><td>421 - 842</td></tr><tr><td style="text-align: center;"><img src="legend/JUANITAGOEBERTUS_17_84212622.png" /></td><td>842 - 1262</td></tr><tr><td style="text-align: center;"><img src="legend/JUANITAGOEBERTUS_17_126216833.png" /></td><td>1262 - 1683</td></tr><tr><td style="text-align: center;"><img src="legend/JUANITAGOEBERTUS_17_168321044.png" /></td><td>1683 - 2104</td></tr></table>': layer_JUANITAGOEBERTUS_17,'SERGIO FERNANDEZ<br /><table><tr><td style="text-align: center;"><img src="legend/SERGIOFERNANDEZ_16_0630.png" /></td><td>0 - 63</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFERNANDEZ_16_631251.png" /></td><td>63 - 125</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFERNANDEZ_16_1251882.png" /></td><td>125 - 188</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFERNANDEZ_16_1882503.png" /></td><td>188 - 250</td></tr><tr><td style="text-align: center;"><img src="legend/SERGIOFERNANDEZ_16_2503134.png" /></td><td>250 - 313</td></tr></table>': layer_SERGIOFERNANDEZ_16,'GABRIEL SANTOS<br /><table><tr><td style="text-align: center;"><img src="legend/GABRIELSANTOS_15_01830.png" /></td><td>0 - 183</td></tr><tr><td style="text-align: center;"><img src="legend/GABRIELSANTOS_15_1833651.png" /></td><td>183 - 365</td></tr><tr><td style="text-align: center;"><img src="legend/GABRIELSANTOS_15_3655482.png" /></td><td>365 - 548</td></tr><tr><td style="text-align: center;"><img src="legend/GABRIELSANTOS_15_5487303.png" /></td><td>548 - 730</td></tr><tr><td style="text-align: center;"><img src="legend/GABRIELSANTOS_15_7309134.png" /></td><td>730 - 913</td></tr></table>': layer_GABRIELSANTOS_15,'JUAN CARLOS LOZADA<br /><table><tr><td style="text-align: center;"><img src="legend/JUANCARLOSLOZADA_14_0850.png" /></td><td>0 - 85</td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSLOZADA_14_851691.png" /></td><td>85 - 169</td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSLOZADA_14_1692542.png" /></td><td>169 - 254</td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSLOZADA_14_2543383.png" /></td><td>254 - 338</td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSLOZADA_14_3384234.png" /></td><td>338 - 423</td></tr></table>': layer_JUANCARLOSLOZADA_14,'JORGE TORRES<br /><table><tr><td style="text-align: center;"><img src="legend/JORGETORRES_13_0730.png" /></td><td> 0 - 73 </td></tr><tr><td style="text-align: center;"><img src="legend/JORGETORRES_13_731471.png" /></td><td> 73 - 147 </td></tr><tr><td style="text-align: center;"><img src="legend/JORGETORRES_13_1472202.png" /></td><td> 147 - 220 </td></tr><tr><td style="text-align: center;"><img src="legend/JORGETORRES_13_2202943.png" /></td><td> 220 - 294 </td></tr><tr><td style="text-align: center;"><img src="legend/JORGETORRES_13_2943674.png" /></td><td> 294 - 367 </td></tr></table>': layer_JORGETORRES_13,'DIEGO LASERNA<br /><table><tr><td style="text-align: center;"><img src="legend/DIEGOLASERNA_12_0950.png" /></td><td> 0 - 95 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOLASERNA_12_951901.png" /></td><td> 95 - 190 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOLASERNA_12_1902852.png" /></td><td> 190 - 285 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOLASERNA_12_2853803.png" /></td><td> 285 - 380 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOLASERNA_12_3804754.png" /></td><td> 380 - 475 </td></tr></table>': layer_DIEGOLASERNA_12,'DIEGO CANCINO<br /><table><tr><td style="text-align: center;"><img src="legend/DIEGOCANCINO_11_0260.png" /></td><td> 0 - 26 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOCANCINO_11_26531.png" /></td><td> 26 - 53 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOCANCINO_11_53792.png" /></td><td> 53 - 79 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOCANCINO_11_791063.png" /></td><td> 79 - 106 </td></tr><tr><td style="text-align: center;"><img src="legend/DIEGOCANCINO_11_1061324.png" /></td><td> 106 - 132 </td></tr></table>': layer_DIEGOCANCINO_11,'LUCIA BASTIDAS<br /><table><tr><td style="text-align: center;"><img src="legend/LUCIABASTIDAS_10_0410.png" /></td><td> 0 - 41 </td></tr><tr><td style="text-align: center;"><img src="legend/LUCIABASTIDAS_10_41821.png" /></td><td> 41 - 82 </td></tr><tr><td style="text-align: center;"><img src="legend/LUCIABASTIDAS_10_821222.png" /></td><td> 82 - 122 </td></tr><tr><td style="text-align: center;"><img src="legend/LUCIABASTIDAS_10_1221633.png" /></td><td> 122 - 163 </td></tr><tr><td style="text-align: center;"><img src="legend/LUCIABASTIDAS_10_1632044.png" /></td><td> 163 - 204 </td></tr></table>': layer_LUCIABASTIDAS_10,'MARIA F ROJAS<br /><table><tr><td style="text-align: center;"><img src="legend/MARIAFROJAS_9_0470.png" /></td><td> 0 - 47 </td></tr><tr><td style="text-align: center;"><img src="legend/MARIAFROJAS_9_47941.png" /></td><td> 47 - 94 </td></tr><tr><td style="text-align: center;"><img src="legend/MARIAFROJAS_9_941422.png" /></td><td> 94 - 142 </td></tr><tr><td style="text-align: center;"><img src="legend/MARIAFROJAS_9_1421893.png" /></td><td> 142 - 189 </td></tr><tr><td style="text-align: center;"><img src="legend/MARIAFROJAS_9_1892364.png" /></td><td> 189 - 236 </td></tr></table>': layer_MARIAFROJAS_9,'JOSE DAVID CASTELLANOS<br /><table><tr><td style="text-align: center;"><img src="legend/JOSEDAVIDCASTELLANOS_8_0920.png" /></td><td> 0 - 92 </td></tr><tr><td style="text-align: center;"><img src="legend/JOSEDAVIDCASTELLANOS_8_921831.png" /></td><td> 92 - 183 </td></tr><tr><td style="text-align: center;"><img src="legend/JOSEDAVIDCASTELLANOS_8_1832752.png" /></td><td> 183 - 275 </td></tr><tr><td style="text-align: center;"><img src="legend/JOSEDAVIDCASTELLANOS_8_2753663.png" /></td><td> 275 - 366 </td></tr><tr><td style="text-align: center;"><img src="legend/JOSEDAVIDCASTELLANOS_8_3664584.png" /></td><td> 366 - 458 </td></tr></table>': layer_JOSEDAVIDCASTELLANOS_8,'RODRIGO LOZANO<br /><table><tr><td style="text-align: center;"><img src="legend/RODRIGOLOZANO_7_02230.png" /></td><td> 0 - 223 </td></tr><tr><td style="text-align: center;"><img src="legend/RODRIGOLOZANO_7_2234461.png" /></td><td> 223 - 446 </td></tr><tr><td style="text-align: center;"><img src="legend/RODRIGOLOZANO_7_4466682.png" /></td><td> 446 - 668 </td></tr><tr><td style="text-align: center;"><img src="legend/RODRIGOLOZANO_7_6688913.png" /></td><td> 668 - 891 </td></tr><tr><td style="text-align: center;"><img src="legend/RODRIGOLOZANO_7_89111144.png" /></td><td> 891 - 1114 </td></tr></table>': layer_RODRIGOLOZANO_7,'GERMAN RICAURTE<br /><table><tr><td style="text-align: center;"><img src="legend/GERMANRICAURTE_6_0500.png" /></td><td> 0 - 50 </td></tr><tr><td style="text-align: center;"><img src="legend/GERMANRICAURTE_6_501001.png" /></td><td> 50 - 100 </td></tr><tr><td style="text-align: center;"><img src="legend/GERMANRICAURTE_6_1001492.png" /></td><td> 100 - 149 </td></tr><tr><td style="text-align: center;"><img src="legend/GERMANRICAURTE_6_1491993.png" /></td><td> 149 - 199 </td></tr><tr><td style="text-align: center;"><img src="legend/GERMANRICAURTE_6_1992494.png" /></td><td> 199 - 249 </td></tr></table>': layer_GERMANRICAURTE_6,'JUAN CARLOS FLOREZ<br /><table><tr><td style="text-align: center;"><img src="legend/JUANCARLOSFLOREZ_5_02360.png" /></td><td> 0 - 236 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSFLOREZ_5_2364721.png" /></td><td> 236 - 472 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSFLOREZ_5_4727082.png" /></td><td> 472 - 708 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSFLOREZ_5_7089443.png" /></td><td> 708 - 944 </td></tr><tr><td style="text-align: center;"><img src="legend/JUANCARLOSFLOREZ_5_94411804.png" /></td><td> 944 - 1180 </td></tr></table>': layer_JUANCARLOSFLOREZ_5,'FERNANDO ROJAS<br /><table><tr><td style="text-align: center;"><img src="legend/FERNANDOROJAS_4_0240.png" /></td><td> 0 - 24 </td></tr><tr><td style="text-align: center;"><img src="legend/FERNANDOROJAS_4_24481.png" /></td><td> 24 - 48 </td></tr><tr><td style="text-align: center;"><img src="legend/FERNANDOROJAS_4_48732.png" /></td><td> 48 - 73 </td></tr><tr><td style="text-align: center;"><img src="legend/FERNANDOROJAS_4_73973.png" /></td><td> 73 - 97 </td></tr><tr><td style="text-align: center;"><img src="legend/FERNANDOROJAS_4_971214.png" /></td><td> 97 - 121 </td></tr></table>': layer_FERNANDOROJAS_4,"Mapa de Calor 2018": layer_MapadeCalor2018_3,"Mapa de Calor 2015": layer_MapadeCalor2015_2,"Mapa de Calor Final": layer_MapadeCalorFinal_1,"Google Maps": layer_GoogleMaps_0,}).addTo(map);
+        setBounds();
+        map.addControl(new L.Control.Search({
+            layer: layer_SERGIOFAJARDO_27,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            propertyName: 'Nombre'}));
+        document.getElementsByClassName('search-button')[0].className +=
+         ' fa fa-binoculars';
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        </script>
+    </body>
+</html>
