@@ -48,6 +48,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-search.js"></script>
+        <script src="data/Localidades_1.js"></script>
         <script src="data/FERNANDOROJAS_4.js"></script>
         <script src="data/JUANCARLOSFLOREZ_5.js"></script>
         <script src="data/GERMANRICAURTE_6.js"></script>
@@ -118,6 +119,64 @@
         var img_bounds_MapadeCalor2018_3 = [[3.985445528462431,-74.36373790656846],[4.8239061772559735,-74.01638673881061]];
         var layer_MapadeCalor2018_3 = new L.imageOverlay(img_MapadeCalor2018_3, img_bounds_MapadeCalor2018_3);
         bounds_group.addLayer(layer_MapadeCalor2018_3);
+        function pop_Localidades_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? Autolinker.link(String(feature.properties['OBJECTID'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LocNombre'] !== null ? Autolinker.link(String(feature.properties['LocNombre'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LocAAdmini'] !== null ? Autolinker.link(String(feature.properties['LocAAdmini'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LocArea'] !== null ? Autolinker.link(String(feature.properties['LocArea'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LocCodigo'] !== null ? Autolinker.link(String(feature.properties['LocCodigo'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Leng'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Area'] !== null ? Autolinker.link(String(feature.properties['SHAPE_Area'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Localidades_1_0() {
+            return {
+                pane: 'pane_Localidades_1',
+                opacity: 1,
+                color: 'rgba(237,44,14,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_Localidades_1');
+        map.getPane('pane_Localidades_1').style.zIndex = 401;
+        map.getPane('pane_Localidades_1').style['mix-blend-mode'] = 'normal';
+        var layer_Localidades_1 = new L.geoJson(json_Localidades_1, {
+            attribution: '',
+            pane: 'pane_Localidades_1',
+            onEachFeature: pop_Localidades_1,
+            style: style_Localidades_1_0,
+        });
+        bounds_group.addLayer(layer_Localidades_1);
+        map.addLayer(layer_Localidades_1);
         function pop_FERNANDOROJAS_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
